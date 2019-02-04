@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mee te brengen van den Colruyt</h1>
+    
+    <ul id="list">
+    </ul>
+
+    <input type="text" id="product">
+    <button onclick="addItem();">Add</button>
+    <button onclick="deleteItem();">Remove</button>
+
+    <script>
+        var lijst = ["Waspoeder", "Kip", "Alcoholstift", "Witte wijn"];
+     
+    
+
+        function addItem(){
+            var addProduct = document.querySelector("#product").value;
+            lijst.push(addProduct);
+
+            printList();
+        }
+
+        function deleteItem(){
+            var deleteProduct = document.querySelector("#product");
+            var searchItem = deleteProduct.value;
+            var index = lijst.indexOf(searchItem);
+            if(index !== -1){
+                lijst.splice(index, 1);
+            } else {
+                console.log("niet gevonden");
+            }
+            printList();
+        }
+
+        function printList(){
+            list.innerHTML = "<li>" + lijst.join("</li><li>") + "</li>";
+        }
+
+        printList();
+    </script>
+</body>
+</html>
